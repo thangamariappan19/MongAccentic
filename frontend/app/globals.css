@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #08090b;
+  --surface: #0d0f14;
+  --surface-2: #111520;
+  --border: rgba(255, 255, 255, 0.055);
+  --border-strong: rgba(255, 255, 255, 0.1);
+  --foreground: #f1f5f9;
+  --muted: #64748b;
+  --muted-2: #334155;
+  --accent: #A100FF;
+}
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--foreground);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    letter-spacing: -0.01em;
+  }
+
+  /* Refined scrollbar */
+  ::-webkit-scrollbar { width: 3px; height: 3px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.07); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.13); }
+
+  /* Inputs */
+  input, textarea, select {
+    background: var(--surface);
+    color: var(--foreground);
+    outline: none;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: var(--muted-2);
+  }
+}
+
+/* Animations */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(161,0,255,0); }
+  50%       { box-shadow: 0 0 12px 2px rgba(161,0,255,0.25); }
+}
+
+@layer utilities {
+  .animate-shimmer {
+    background: linear-gradient(90deg,
+      transparent 0%, rgba(255,255,255,0.04) 50%, transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.8s ease-in-out infinite;
+  }
+
+  .animate-fade-up   { animation: fade-up 0.22s ease-out forwards; }
+  .animate-scale-in  { animation: scale-in 0.18s ease-out forwards; }
+  .animate-slide-in  { animation: slide-in-left 0.2s ease-out forwards; }
+
+  /* Gradient text utilities */
+  .text-gradient {
+    background: linear-gradient(135deg, #f1f5f9 0%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-accent {
+    background: linear-gradient(135deg, #d580ff 0%, #A100FF 60%, #7000c4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Card glass effect */
+  .card-glass {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    box-shadow: 0 1px 0 0 rgba(255,255,255,0.03) inset,
+                0 8px 32px rgba(0,0,0,0.5);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .card-glass:hover {
+    border-color: rgba(255,255,255,0.08);
+    box-shadow: 0 1px 0 0 rgba(255,255,255,0.04) inset,
+                0 12px 40px rgba(0,0,0,0.55);
+  }
+
+  /* Metric number */
+  .metric-num {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+    letter-spacing: -0.03em;
+  }
+
+  /* Reusable surface card */
+  .surface {
+    background: #0d0f14;
+    border: 1px solid rgba(255, 255, 255, 0.055);
+  }
+
+  /* Primary action button — Accenture Purple */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: #A100FF;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background 0.15s;
+  }
+
+  .btn-primary:hover { background: #8900d9; }
+  .btn-primary:active { transform: scale(0.97); }
+
+  /* Focus ring */
+  .focus-ring:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(161,0,255,0.4);
+  }
+}
