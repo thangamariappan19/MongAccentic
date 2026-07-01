@@ -139,13 +139,13 @@ export default function SubmitPage() {
         <div className="flex-1 min-w-0 space-y-5">
 
           {/* Chapter card — mobile only (shown above form) */}
-          <div className="lg:hidden rounded-xl px-5 py-4" style={{ background: "#0a0d12", border: "1px solid #A100FF20" }}>
-            <span className="text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full" style={{ background: "#A100FF15", color: "#A100FF", border: "1px solid #A100FF30" }}>
+          <div className="lg:hidden rounded-xl px-5 py-4" style={{ background: "linear-gradient(135deg, #faf5ff 0%, #f0e8ff 100%)", border: "1px solid rgba(108,99,255,0.18)" }}>
+            <span className="text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full" style={{ background: "#6C63FF12", color: "#6C63FF", border: "1px solid #6C63FF30" }}>
               Chapter 2 · Watch AI Work
             </span>
-            <h1 className="text-lg font-bold text-white mt-2">You are the Claims Adjuster</h1>
+            <h1 className="text-lg font-bold text-[#223A66] mt-2">You are the Claims Adjuster</h1>
             <p className="text-xs text-[#475569] mt-1 leading-relaxed">
-              Fill in a claim and hit submit. Five AI agents process it in under <span className="text-white font-medium">3 seconds</span>.
+              Fill in a claim and hit submit. Five AI agents process it in under <span className="text-[#223A66] font-medium">3 seconds</span>.
             </p>
           </div>
 
@@ -155,7 +155,7 @@ export default function SubmitPage() {
               <input type="text" value={form.claimant_name}
                 onChange={e => setForm({ ...form, claimant_name: e.target.value })}
                 placeholder="Full name of the claimant"
-                className="w-full surface rounded-lg px-4 py-2.5 text-sm text-white placeholder-[#334155] focus:outline-none focus:ring-1 border border-white/[0.06] focus:border-[#A100FF]/50" />
+                className="w-full surface rounded-lg px-4 py-2.5 text-sm text-white placeholder-[#334155] focus:outline-none focus:ring-1 border border-white/[0.06] focus:border-[#6C63FF]/50" />
             </div>
 
             <div>
@@ -166,7 +166,7 @@ export default function SubmitPage() {
                     onClick={() => { setForm({ ...form, claim_type: t.value }); setDocs([]); }}
                     className={`px-3 py-3 rounded-lg border text-left transition-colors ${
                       form.claim_type === t.value
-                        ? "border-[#A100FF]/50 bg-[#A100FF]/08 text-white"
+                        ? "border-[#6C63FF]/50 bg-[#6C63FF]/08 text-white"
                         : "border-white/[0.05] text-[#475569] hover:border-white/10 hover:text-[#64748b]"
                     }`}>
                     <div className="text-xs font-semibold">{t.label}</div>
@@ -181,7 +181,7 @@ export default function SubmitPage() {
               <textarea rows={4} value={form.description}
                 onChange={e => setForm({ ...form, description: e.target.value })}
                 placeholder="Describe when, where, and how the incident occurred..."
-                className="w-full surface rounded-lg px-4 py-2.5 text-sm text-white placeholder-[#334155] focus:outline-none border border-white/[0.06] focus:border-[#A100FF]/50 resize-none" />
+                className="w-full surface rounded-lg px-4 py-2.5 text-sm text-white placeholder-[#334155] focus:outline-none border border-white/[0.06] focus:border-[#6C63FF]/50 resize-none" />
             </div>
 
             <div>
@@ -191,7 +191,7 @@ export default function SubmitPage() {
                 <input type="number" value={form.amount}
                   onChange={e => setForm({ ...form, amount: e.target.value })}
                   placeholder="0.00"
-                  className="w-full surface rounded-lg pl-8 pr-4 py-2.5 text-sm text-white placeholder-[#334155] focus:outline-none border border-white/[0.06] focus:border-[#A100FF]/50" />
+                  className="w-full surface rounded-lg pl-8 pr-4 py-2.5 text-sm text-white placeholder-[#334155] focus:outline-none border border-white/[0.06] focus:border-[#6C63FF]/50" />
               </div>
             </div>
 
@@ -206,8 +206,8 @@ export default function SubmitPage() {
                 onClick={() => fileInputRef.current?.click()}
                 className={`relative flex flex-col items-center justify-center gap-2 px-4 py-8 rounded-xl border-2 border-dashed cursor-pointer transition-all ${
                   dragging
-                    ? "border-[#A100FF]/60 bg-[#A100FF]/08"
-                    : "border-white/[0.07] hover:border-[#A100FF]/30 hover:bg-[#A100FF]/04"
+                    ? "border-[#6C63FF]/60 bg-[#6C63FF]/08"
+                    : "border-white/[0.07] hover:border-[#6C63FF]/30 hover:bg-[#6C63FF]/04"
                 }`}>
                 <input ref={fileInputRef} type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" className="hidden"
                   onChange={e => addFiles(e.target.files)} />
@@ -224,8 +224,8 @@ export default function SubmitPage() {
               {uploadedFiles.length > 0 && (
                 <div className="mt-2 space-y-1.5">
                   {uploadedFiles.map(f => (
-                    <div key={f.name} className="flex items-center gap-3 px-3 py-2 rounded-lg border border-[#A100FF]/20 bg-[#A100FF]/05">
-                      <svg className="w-4 h-4 shrink-0" style={{ color: "#A100FF" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+                    <div key={f.name} className="flex items-center gap-3 px-3 py-2 rounded-lg border border-[#6C63FF]/20 bg-[#6C63FF]/05">
+                      <svg className="w-4 h-4 shrink-0" style={{ color: "#6C63FF" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                       </svg>
                       <span className="flex-1 text-xs text-white truncate">{f.name}</span>
@@ -249,7 +249,7 @@ export default function SubmitPage() {
                     <button key={doc} type="button" onClick={() => toggleDoc(doc)}
                       className={`text-xs px-3 py-1.5 rounded-full border transition-colors ${
                         docs.includes(doc)
-                          ? "border-[#A100FF]/40 bg-[#A100FF]/08 text-[#b84dff]"
+                          ? "border-[#6C63FF]/40 bg-[#6C63FF]/08 text-[#b84dff]"
                           : "border-white/[0.05] text-[#475569] hover:border-white/10"
                       }`}>
                       {docs.includes(doc) ? "✓ " : ""}{doc}
@@ -271,9 +271,9 @@ export default function SubmitPage() {
 
             <button type="submit"
               className="w-full py-3.5 rounded-xl text-sm font-semibold text-white transition-colors"
-              style={{ background: "#A100FF" }}
-              onMouseEnter={e => (e.currentTarget.style.background = "#8900d9")}
-              onMouseLeave={e => (e.currentTarget.style.background = "#A100FF")}>
+              style={{ background: "#0D6EFD" }}
+              onMouseEnter={e => (e.currentTarget.style.background = "#0b5ed7")}
+              onMouseLeave={e => (e.currentTarget.style.background = "#0D6EFD")}>
               Submit Claim → Run AI Pipeline
             </button>
           </form>
@@ -283,8 +283,8 @@ export default function SubmitPage() {
         <div className="hidden lg:flex flex-col gap-4 w-80 xl:w-96 shrink-0">
 
           {/* Chapter card */}
-          <div className="rounded-xl px-5 py-5" style={{ background: "#0a0d12", border: "1px solid #A100FF20" }}>
-            <span className="text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full" style={{ background: "#A100FF15", color: "#A100FF", border: "1px solid #A100FF30" }}>
+          <div className="rounded-xl px-5 py-5" style={{ background: "#0a0d12", border: "1px solid #6C63FF20" }}>
+            <span className="text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full" style={{ background: "#6C63FF15", color: "#6C63FF", border: "1px solid #6C63FF30" }}>
               Chapter 2 · Watch AI Work
             </span>
             <h2 className="text-lg font-bold text-white mt-3">You are the Claims Adjuster</h2>
@@ -299,7 +299,7 @@ export default function SubmitPage() {
                 { n: "100%", label: "automated" },
               ].map(s => (
                 <div key={s.label}>
-                  <div className="text-base font-bold" style={{ color: "#A100FF" }}>{s.n}</div>
+                  <div className="text-base font-bold" style={{ color: "#6C63FF" }}>{s.n}</div>
                   <div className="text-[9px] text-[#334155] mt-0.5">{s.label}</div>
                 </div>
               ))}
@@ -314,11 +314,11 @@ export default function SubmitPage() {
                 <div key={s.name} className="flex gap-3">
                   {/* Timeline */}
                   <div className="flex flex-col items-center">
-                    <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 text-white" style={{ background: "#A100FF20", border: "1px solid #A100FF30" }}>
+                    <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 text-white" style={{ background: "#6C63FF20", border: "1px solid #6C63FF30" }}>
                       {i + 1}
                     </div>
                     {i < PIPELINE_STEPS.length - 1 && (
-                      <div className="w-px flex-1 my-1" style={{ background: "#A100FF15" }} />
+                      <div className="w-px flex-1 my-1" style={{ background: "#6C63FF15" }} />
                     )}
                   </div>
                   {/* Content */}
@@ -326,7 +326,7 @@ export default function SubmitPage() {
                     <div className="text-[12px] font-semibold text-[#94a3b8]">{s.name}</div>
                     {s.feature && (
                       <span className="inline-block text-[9px] px-1.5 py-0.5 rounded mt-0.5 mb-1"
-                        style={{ background: "#A100FF10", color: "#A100FF80", border: "1px solid #A100FF20" }}>
+                        style={{ background: "#6C63FF10", color: "#6C63FF80", border: "1px solid #6C63FF20" }}>
                         {s.feature}
                       </span>
                     )}
@@ -376,7 +376,7 @@ function PipelineView({ step }: { step: number }) {
                 <div className="flex flex-col items-center w-8 shrink-0">
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
                     done    ? "bg-emerald-500/15 text-emerald-400" :
-                    running ? "bg-[#A100FF]/15 text-[#A100FF]" :
+                    running ? "bg-[#6C63FF]/15 text-[#6C63FF]" :
                               "bg-white/[0.03] text-[#1e2a3a]"
                   }`}>
                     {done ? (
@@ -400,7 +400,7 @@ function PipelineView({ step }: { step: number }) {
                     {s.feature && (
                       <span className={`text-[10px] px-1.5 py-0.5 rounded border ${
                         done || running
-                          ? "border-[#A100FF]/25 text-[#A100FF]/70 bg-[#A100FF]/05"
+                          ? "border-[#6C63FF]/25 text-[#6C63FF]/70 bg-[#6C63FF]/05"
                           : "border-white/[0.04] text-[#1e2a3a]"
                       }`}>
                         {s.feature}
@@ -433,8 +433,8 @@ function PipelineView({ step }: { step: number }) {
 
       <div className="flex items-center gap-2 text-xs text-[#334155]">
         <span className="relative flex h-1.5 w-1.5 shrink-0">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A100FF] opacity-75" />
-          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#A100FF]" />
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6C63FF] opacity-75" />
+          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#6C63FF]" />
         </span>
         All agent state is being checkpointed to MongoDB Atlas in real time
       </div>
@@ -450,7 +450,7 @@ function ResultView({ result, onReset }: { result: Claim; onReset: () => void })
   const verdictStyle: Record<string, { bg: string; text: string; label: string }> = {
     approved:     { bg: "#10b981/10", text: "#10b981", label: "Approved" },
     flagged:      { bg: "#ef4444/10", text: "#ef4444", label: "Flagged for Review" },
-    escalated:    { bg: "#A100FF/10", text: "#A100FF", label: "Escalated" },
+    escalated:    { bg: "#6C63FF/10", text: "#6C63FF", label: "Escalated" },
     pending_docs: { bg: "#f59e0b/10", text: "#f59e0b", label: "Pending Documents" },
     rejected:     { bg: "#ef4444/10", text: "#ef4444", label: "Rejected" },
   };
@@ -555,9 +555,9 @@ function ResultView({ result, onReset }: { result: Claim; onReset: () => void })
         <button
           onClick={() => router.push(`/claims/${result.claim_id}`)}
           className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white"
-          style={{ background: "#A100FF" }}
-          onMouseEnter={e => (e.currentTarget.style.background = "#8900d9")}
-          onMouseLeave={e => (e.currentTarget.style.background = "#A100FF")}>
+          style={{ background: "#0D6EFD" }}
+          onMouseEnter={e => (e.currentTarget.style.background = "#0b5ed7")}
+          onMouseLeave={e => (e.currentTarget.style.background = "#0D6EFD")}>
           View Claim Details →
         </button>
         <Link href="/claims"
@@ -577,7 +577,7 @@ const METHOD_META: Record<string, { label: string; color: string; icon: string }
   aws_bedrock_claude:              { label: "AWS Bedrock · Claude",            color: "#f59e0b", icon: "B" },
   mongodb_atlas_vector_search:     { label: "MongoDB Atlas Vector Search",     color: "#10b981", icon: "V" },
   rule_based_fallback:             { label: "Rule-based",                      color: "#475569", icon: "R" },
-  langgraph_mongodb_checkpointing: { label: "LangGraph MongoDB Checkpoint",    color: "#A100FF", icon: "C" },
+  langgraph_mongodb_checkpointing: { label: "LangGraph MongoDB Checkpoint",    color: "#6C63FF", icon: "C" },
 };
 
 function AiMethodsPanel({ trace }: { trace: { agent_name: string; result?: Record<string, unknown>; duration_ms?: number }[] }) {
@@ -629,8 +629,8 @@ function AiMethodsPanel({ trace }: { trace: { agent_name: string; result?: Recor
 function PulsingDot() {
   return (
     <span className="relative flex h-3 w-3">
-      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A100FF] opacity-60" />
-      <span className="relative inline-flex rounded-full h-3 w-3 bg-[#A100FF]" />
+      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6C63FF] opacity-60" />
+      <span className="relative inline-flex rounded-full h-3 w-3 bg-[#6C63FF]" />
     </span>
   );
 }
@@ -639,7 +639,7 @@ function LoadingDots() {
   return (
     <span className="flex gap-1 items-center pt-1">
       {[0, 1, 2].map(i => (
-        <span key={i} className="w-1 h-1 rounded-full bg-[#A100FF]"
+        <span key={i} className="w-1 h-1 rounded-full bg-[#6C63FF]"
           style={{ animation: `bounce 1.2s ease-in-out infinite ${i * 0.2}s` }} />
       ))}
     </span>

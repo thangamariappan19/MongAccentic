@@ -82,7 +82,7 @@ export default function NewSubmissionPage() {
           </div>
           <div className="h-2 bg-white/[0.06] rounded-full overflow-hidden">
             <div
-              className="h-full rounded-full bg-[#A100FF] transition-all duration-500"
+              className="h-full rounded-full bg-[#6C63FF] transition-all duration-500"
               style={{ width: `${done ? 100 : EXTRACTION_STEPS[extractionStep - 1]?.pct ?? 0}%` }}
             />
           </div>
@@ -122,7 +122,7 @@ export default function NewSubmissionPage() {
             value={form.insured_name}
             onChange={(e) => setForm({ ...form, insured_name: e.target.value })}
             placeholder="e.g. Acme Manufacturing Corp"
-            className="w-full bg-[#0f1015] border border-white/[0.07] rounded-lg px-4 py-2.5 text-white placeholder-[#4b5563] focus:outline-none focus:border-[#A100FF]/50 text-sm"
+            className="w-full bg-[#0f1015] border border-white/[0.07] rounded-lg px-4 py-2.5 text-white placeholder-[#4b5563] focus:outline-none focus:border-[#6C63FF]/50 text-sm"
           />
         </div>
 
@@ -134,7 +134,7 @@ export default function NewSubmissionPage() {
             value={form.broker_name}
             onChange={(e) => setForm({ ...form, broker_name: e.target.value })}
             placeholder="e.g. Marsh McLennan, Aon, Willis Towers Watson"
-            className="w-full bg-[#0f1015] border border-white/[0.07] rounded-lg px-4 py-2.5 text-white placeholder-[#4b5563] focus:outline-none focus:border-[#A100FF]/50 text-sm"
+            className="w-full bg-[#0f1015] border border-white/[0.07] rounded-lg px-4 py-2.5 text-white placeholder-[#4b5563] focus:outline-none focus:border-[#6C63FF]/50 text-sm"
           />
         </div>
 
@@ -149,7 +149,7 @@ export default function NewSubmissionPage() {
                 onClick={() => { setForm({ ...form, line_of_business: opt.value }); setSelectedDocs([]); }}
                 className={`flex items-start gap-3 p-3.5 rounded-xl border text-left transition-all ${
                   form.line_of_business === opt.value
-                    ? "border-[#A100FF]/40 bg-[#A100FF]/[0.06] text-[#b84dff]"
+                    ? "border-[#6C63FF]/40 bg-[#6C63FF]/[0.06] text-[#b84dff]"
                     : "border-white/[0.07] text-[#6b7280] hover:border-white/[0.12] hover:text-[#d1d5db]"
                 }`}
               >
@@ -178,7 +178,7 @@ export default function NewSubmissionPage() {
                   onClick={() => toggleDoc(doc)}
                   className={`flex items-center gap-2 text-xs px-3 py-2 rounded-lg border text-left transition-all ${
                     selectedDocs.includes(doc)
-                      ? "border-[#A100FF]/30 bg-[#A100FF]/[0.06] text-[#b84dff]"
+                      ? "border-[#6C63FF]/30 bg-[#6C63FF]/[0.06] text-[#b84dff]"
                       : "border-white/[0.07] text-[#6b7280] hover:border-white/[0.12]"
                   }`}
                 >
@@ -212,7 +212,7 @@ export default function NewSubmissionPage() {
 
         <button
           type="submit"
-          className="w-full bg-[#8900d9] hover:bg-[#A100FF] text-white py-3 rounded-xl font-semibold text-sm transition-colors flex items-center justify-center gap-2 shadow-lg shadow-[#8900d9]/20"
+          className="w-full bg-[#8900d9] hover:bg-[#6C63FF] text-white py-3 rounded-xl font-semibold text-sm transition-colors flex items-center justify-center gap-2 shadow-lg shadow-[#8900d9]/20"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />

@@ -45,16 +45,16 @@ export default function BenchmarkPage() {
     <div className="space-y-8 max-w-[1200px]">
 
       {/* Chapter card */}
-      <div className="rounded-xl px-5 py-4" style={{ background: "#080d0a", border: "1px solid #10b98120" }}>
+      <div className="rounded-xl px-5 py-4" style={{ background: "linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)", border: "1px solid rgba(16,185,129,0.2)" }}>
         <div className="flex items-center gap-2 mb-2">
           <span className="text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full" style={{ background: "#10b98115", color: "#10b981", border: "1px solid #10b98130" }}>
             Chapter 6 · Proof of Impact
           </span>
         </div>
-        <h1 className="text-base font-bold text-white">How we compare to the industry</h1>
+        <h1 className="text-base font-bold text-[#223A66]">How we compare to the industry</h1>
         <p className="text-xs text-[#475569] mt-1 leading-relaxed max-w-2xl">
           IRDAI (Insurance Regulatory Authority of India) mandates insurers settle claims within 30 days. The industry average is 21 days.
-          <span className="text-white font-medium"> Our AI processes each claim in under 3 seconds</span> — that is 600,000× faster.
+          <span className="text-[#223A66] font-medium"> Our AI processes each claim in under 3 seconds</span> — that is 600,000× faster.
           This page shows real IRDAI benchmark data from FY 2023–24, compared live against our platform.
         </p>
         <div className="flex flex-wrap gap-4 mt-3">
@@ -76,7 +76,7 @@ export default function BenchmarkPage() {
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-6">
         <div>
           <div className="flex items-center gap-2.5 mb-2">
-            <h1 className="text-xl font-semibold text-white">Regulatory Intelligence</h1>
+            <h1 className="text-xl font-semibold text-[#223A66]">Regulatory Intelligence</h1>
             <span className="px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase bg-sky-500/10 text-sky-400 border border-sky-500/20">
               {irdai.fiscal_year}
             </span>
@@ -108,7 +108,7 @@ export default function BenchmarkPage() {
           <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
         </svg>
         <span className="text-[#475569]">
-          Source:&nbsp;<span className="text-white font-medium">{irdai.source}</span>
+          Source:&nbsp;<span className="text-[#223A66] font-medium">{irdai.source}</span>
           &nbsp;·&nbsp;
           <a href={irdai.report_url} target="_blank" rel="noreferrer"
             className="text-sky-400 hover:text-sky-300 transition-colors">{irdai.report_url}</a>
@@ -130,7 +130,7 @@ export default function BenchmarkPage() {
                 <th className="px-5 py-3 text-left text-[10px] font-semibold text-[#10b981] uppercase tracking-wider w-1/3">MongAccentic AI</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/[0.03]">
+            <tbody className="divide-y divide-[#f1f5f9]">
               {[
                 { cap: "Claim Processing Time",     old: "21 days avg",               ours: "< 3 seconds",                       better: true },
                 { cap: "Fraud Detection",           old: "Manual review, 2–4 weeks",  ours: "Automated, real-time score",         better: true },
@@ -217,7 +217,7 @@ export default function BenchmarkPage() {
           className="w-full flex items-center justify-between gap-3 mb-3 group"
         >
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full shrink-0 bg-[#A100FF]" />
+            <span className="w-1.5 h-1.5 rounded-full shrink-0 bg-[#6C63FF]" />
             <h2 className="text-[10px] font-semibold text-[#475569] uppercase tracking-[0.1em]">
               AI Platform vs Industry Benchmarks
             </h2>
@@ -272,7 +272,7 @@ export default function BenchmarkPage() {
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/[0.03]">
+            <tbody className="divide-y divide-[#f1f5f9]">
               {irdai.segments.map((seg) => {
                 const riskStyle =
                   seg.fraud_risk === "High"   ? "bg-red-500/10 text-red-400 border border-red-500/20" :
@@ -286,7 +286,7 @@ export default function BenchmarkPage() {
                         <div className="w-20 h-1 rounded-full bg-white/[0.06] overflow-hidden">
                           <div className="h-full rounded-full bg-sky-500/60" style={{ width: `${seg.claim_ratio_pct}%` }} />
                         </div>
-                        <span className="text-sm font-bold text-white tabular-nums w-14 text-right">{seg.claim_ratio_pct}%</span>
+                        <span className="text-sm font-bold text-[#223A66] tabular-nums w-14 text-right">{seg.claim_ratio_pct}%</span>
                       </div>
                     </td>
                     <td className="px-5 py-3.5 text-right text-xs text-[#64748b] tabular-nums">{seg.premium_share_pct}%</td>
@@ -338,7 +338,7 @@ export default function BenchmarkPage() {
                 <div key={f.label}>
                   <div className="flex items-center justify-between mb-1.5">
                     <span className="text-[11px] font-medium text-[#94a3b8]">{f.label}</span>
-                    <span className="text-[11px] font-bold text-white tabular-nums">{f.pct}%</span>
+                    <span className="text-[11px] font-bold text-[#223A66] tabular-nums">{f.pct}%</span>
                   </div>
                   <div className="h-1 rounded-full bg-white/[0.05] overflow-hidden">
                     <div className="h-full rounded-full" style={{ width: `${f.pct}%`, background: f.color }} />
@@ -362,7 +362,7 @@ export default function BenchmarkPage() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="p-3 rounded-lg bg-white/[0.03] border border-white/[0.05]">
                   <div className="text-[10px] font-semibold text-[#334155] uppercase tracking-wider mb-1">Global</div>
-                  <div className="text-lg font-bold text-white tabular-nums">${gc.global_market_usd_t}T</div>
+                  <div className="text-lg font-bold text-[#223A66] tabular-nums">${gc.global_market_usd_t}T</div>
                   <div className="text-[10px] text-[#475569] mt-0.5">total market</div>
                 </div>
                 <div className="p-3 rounded-lg bg-white/[0.03] border border-white/[0.05]">
@@ -418,7 +418,7 @@ export default function BenchmarkPage() {
                       fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
-                    <span className="text-sm font-semibold text-white flex-1 text-left">{u.title}</span>
+                    <span className="text-sm font-semibold text-[#223A66] flex-1 text-left">{u.title}</span>
                     <span className="text-[10px] text-[#334155] shrink-0">Effective {u.year}</span>
                     <span className={`px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider border shrink-0 ${impactStyle}`}>
                       {u.impact}
@@ -442,7 +442,7 @@ export default function BenchmarkPage() {
         <div className="surface rounded-xl p-5">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
             <div>
-              <div className="text-2xl font-bold text-white tabular-nums">{irdai.grievances.total_complaints_fy23.toLocaleString()}</div>
+              <div className="text-2xl font-bold text-[#223A66] tabular-nums">{irdai.grievances.total_complaints_fy23.toLocaleString()}</div>
               <div className="text-xs text-[#475569] mt-1">Total complaints filed</div>
               {irdai.grievances.yoy_change_pct && (
                 <div className="text-[11px] mt-1">
@@ -458,7 +458,7 @@ export default function BenchmarkPage() {
               <div className="text-xs text-[#475569] mt-1">Resolution rate</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-white tabular-nums">{irdai.grievances.avg_resolution_days}d</div>
+              <div className="text-2xl font-bold text-[#223A66] tabular-nums">{irdai.grievances.avg_resolution_days}d</div>
               <div className="text-xs text-[#475569] mt-1">Avg resolution time</div>
             </div>
           </div>
@@ -466,12 +466,12 @@ export default function BenchmarkPage() {
       </section>
 
       {/* ── Compliance Footer ────────────────────────────────────────────────── */}
-      <div className="flex items-start gap-3.5 px-5 py-4 rounded-xl surface border-l-2 border-[#A100FF]/40">
+      <div className="flex items-start gap-3.5 px-5 py-4 rounded-xl surface border-l-2 border-[#6C63FF]/40">
         <svg className="w-4 h-4 text-[#b84dff] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
         </svg>
         <div className="text-[11px] leading-relaxed text-[#64748b]">
-          <span className="text-white font-semibold">IRDAI Compliance · </span>
+          <span className="text-[#223A66] font-semibold">IRDAI Compliance · </span>
           Mandate: settlement within {irdai.claims.avg_settlement_days_mandate} days
           {irdai.claims.avg_settlement_days_health_cashless_mandate && ` (${irdai.claims.avg_settlement_days_health_cashless_mandate}d for health cashless — 2024 regulation)`}.
           {" "}Our AI pipeline processes claims in under 2 seconds — {comparison.compliance.margin_pct}% ahead of mandate.
@@ -521,8 +521,8 @@ function TrendLineChart({ trend, currentYear }: { trend: TrendPoint[]; currentYe
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full" style={{ height: "190px" }}>
         <defs>
           <linearGradient id="aGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stopColor="#A100FF" stopOpacity="0.22" />
-            <stop offset="100%" stopColor="#A100FF" stopOpacity="0.02" />
+            <stop offset="0%"   stopColor="#6C63FF" stopOpacity="0.22" />
+            <stop offset="100%" stopColor="#6C63FF" stopOpacity="0.02" />
           </linearGradient>
           <linearGradient id="fGrad" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%"   stopColor="#7c3aed" stopOpacity="0.14" />
@@ -550,7 +550,7 @@ function TrendLineChart({ trend, currentYear }: { trend: TrendPoint[]; currentYe
 
         {/* Lines */}
         {actual.length > 1 && (
-          <path d={lineD(actual, 0)} fill="none" stroke="#A100FF" strokeWidth={2}
+          <path d={lineD(actual, 0)} fill="none" stroke="#6C63FF" strokeWidth={2}
             strokeLinecap="round" strokeLinejoin="round" />
         )}
         {future.length > 1 && (
@@ -566,10 +566,10 @@ function TrendLineChart({ trend, currentYear }: { trend: TrendPoint[]; currentYe
             <g key={t.year}>
               {isCurrent && (
                 <circle cx={px(i)} cy={py(t.total_premium_usd_bn)} r={7}
-                  fill="#A100FF" fillOpacity={0.15} />
+                  fill="#6C63FF" fillOpacity={0.15} />
               )}
               <circle cx={px(i)} cy={py(t.total_premium_usd_bn)} r={isCurrent ? 4 : 3}
-                fill={isFuture ? "#7c3aed" : "#A100FF"}
+                fill={isFuture ? "#7c3aed" : "#6C63FF"}
                 stroke={isFuture ? "#2e1065" : "#1e003f"}
                 strokeWidth={1.5}
               />
@@ -593,7 +593,7 @@ function TrendLineChart({ trend, currentYear }: { trend: TrendPoint[]; currentYe
       {/* Legend */}
       <div className="flex items-center gap-6 mt-1 pl-12">
         <div className="flex items-center gap-2">
-          <div className="w-6 h-0.5 rounded" style={{ background: "#A100FF" }} />
+          <div className="w-6 h-0.5 rounded" style={{ background: "#6C63FF" }} />
           <span className="text-[10px] text-[#475569]">Actual</span>
         </div>
         <div className="flex items-center gap-2">
@@ -601,7 +601,7 @@ function TrendLineChart({ trend, currentYear }: { trend: TrendPoint[]; currentYe
           <span className="text-[10px] text-[#7c3aed]">Estimated / Projected</span>
         </div>
         <div className="flex items-center gap-2 ml-auto">
-          <span className="w-2 h-2 rounded-full bg-[#A100FF]" />
+          <span className="w-2 h-2 rounded-full bg-[#6C63FF]" />
           <span className="text-[10px] text-[#475569]">Current year highlighted</span>
         </div>
       </div>
@@ -617,7 +617,7 @@ function SectionHeader({ children, accent = "sky" }: {
 }) {
   const dot: Record<string, string> = {
     sky: "bg-sky-500", emerald: "bg-emerald-500", amber: "bg-amber-500",
-    red: "bg-red-500", violet: "bg-violet-500", purple: "bg-[#A100FF]",
+    red: "bg-red-500", violet: "bg-violet-500", purple: "bg-[#6C63FF]",
   };
   return (
     <div className="flex items-center gap-2 mb-3">
@@ -632,7 +632,7 @@ function KpiCard({ label, value, sub, badge, accent = "white" }: {
   badge?: { text: string; up: boolean; neutral?: boolean };
   accent?: "white" | "emerald" | "sky";
 }) {
-  const valColor = accent === "emerald" ? "text-emerald-400" : accent === "sky" ? "text-sky-400" : "text-white";
+  const valColor = accent === "emerald" ? "text-emerald-400" : accent === "sky" ? "text-sky-400" : "text-[#223A66]";
   return (
     <div className="surface rounded-xl px-5 py-4 flex flex-col gap-3">
       <div className="flex items-start justify-between gap-2">
@@ -665,19 +665,19 @@ function CompareCard({ title, industryValue, industryDetail, ourValue, ourDetail
       <div className="px-5 py-3 border-b border-white/[0.05]">
         <span className="text-[10px] font-semibold text-[#475569] uppercase tracking-[0.1em]">{title}</span>
       </div>
-      <div className="grid grid-cols-2 divide-x divide-white/[0.05]">
+      <div className="grid grid-cols-2 divide-x divide-[#e2e8f0]">
         <div className="px-5 py-4">
           <div className="text-[9px] font-bold text-sky-400 uppercase tracking-widest mb-2.5">Industry</div>
           <div className="text-xl font-bold text-[#94a3b8] tabular-nums leading-none mb-1.5">{industryValue}</div>
           <div className="text-[11px] text-[#475569]">{industryDetail}</div>
         </div>
-        <div className="px-5 py-4 bg-[#A100FF]/[0.03]">
+        <div className="px-5 py-4 bg-[#6C63FF]/[0.03]">
           <div className="text-[9px] font-bold text-[#b84dff] uppercase tracking-widest mb-2.5">Our AI</div>
-          <div className="text-xl font-bold text-white tabular-nums leading-none mb-1.5">{ourValue}</div>
+          <div className="text-xl font-bold text-[#223A66] tabular-nums leading-none mb-1.5">{ourValue}</div>
           <div className="text-[11px] text-[#475569]">{ourDetail}</div>
         </div>
       </div>
-      <div className="px-5 py-3 border-t border-white/[0.05] bg-[#A100FF]/[0.04] flex items-center gap-2">
+      <div className="px-5 py-3 border-t border-white/[0.05] bg-[#6C63FF]/[0.04] flex items-center gap-2">
         <span className={`text-[11px] font-semibold ${improvementPositive ? "text-emerald-400" : "text-amber-400"}`}>
           {improvementPositive ? "↑" : "→"} {improvement}
         </span>

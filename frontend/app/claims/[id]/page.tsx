@@ -10,7 +10,7 @@ import FraudRingGraph from "@/components/FraudRingGraph";
 const VERDICT_STYLE: Record<string, { bg: string; text: string }> = {
   approved:     { bg: "#10b98115", text: "#10b981" },
   flagged:      { bg: "#ef444415", text: "#ef4444" },
-  escalated:    { bg: "#A100FF15", text: "#A100FF" },
+  escalated:    { bg: "#6C63FF15", text: "#6C63FF" },
   pending_docs: { bg: "#f59e0b15", text: "#f59e0b" },
   rejected:     { bg: "#ef444415", text: "#ef4444" },
 };
@@ -47,15 +47,15 @@ export default function ClaimDetailPage() {
 
   if (loading) return (
     <div className="animate-pulse space-y-4">
-      <div className="h-6 w-48 rounded bg-white/[0.05]" />
-      <div className="h-64 rounded-xl bg-white/[0.04]" />
+      <div className="h-6 w-48 rounded bg-black/[0.05]" />
+      <div className="h-64 rounded-xl bg-black/[0.04]" />
     </div>
   );
 
   if (!claim) return (
     <div className="text-center py-20 text-[#475569] text-sm">
       Claim not found.{" "}
-      <Link href="/claims" className="text-[#A100FF] hover:underline">← Back to claims</Link>
+      <Link href="/claims" className="text-[#6C63FF] hover:underline">← Back to claims</Link>
     </div>
   );
 
@@ -68,7 +68,7 @@ export default function ClaimDetailPage() {
 
       {/* ── Breadcrumb + Header ───────────────────────────────────────────── */}
       <div>
-        <Link href="/claims" className="text-xs text-[#334155] hover:text-[#64748b] transition-colors flex items-center gap-1 mb-3">
+        <Link href="/claims" className="text-xs text-[#94a3b8] hover:text-[#475569] transition-colors flex items-center gap-1 mb-3">
           <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
@@ -77,10 +77,10 @@ export default function ClaimDetailPage() {
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
             <div className="flex items-center gap-3 flex-wrap">
-              <h1 className="text-xl font-bold text-white font-mono">{claim.claim_id}</h1>
+              <h1 className="text-xl font-bold text-[#223A66] font-mono">{claim.claim_id}</h1>
               <StatusBadge status={claim.status} />
               {totalAgentMs > 0 && (
-                <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold" style={{ background: "#A100FF15", color: "#A100FF", border: "1px solid #A100FF30" }}>
+                <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold" style={{ background: "#6C63FF15", color: "#6C63FF", border: "1px solid #6C63FF30" }}>
                   ⚡ {totalAgentMs}ms total
                 </span>
               )}
@@ -90,7 +90,7 @@ export default function ClaimDetailPage() {
             </p>
           </div>
           <button onClick={() => setOverrideOpen(true)}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium border border-[#A100FF]/30 text-[#b84dff] hover:bg-[#A100FF]/10 transition-colors">
+            className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium border border-[#6C63FF]/30 text-[#b84dff] hover:bg-[#6C63FF]/10 transition-colors">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
             </svg>
@@ -100,8 +100,8 @@ export default function ClaimDetailPage() {
       </div>
 
       {/* ── Human-in-the-Loop banner ─────────────────────────────────────── */}
-      <div className="flex items-start gap-3 px-4 py-3.5 rounded-xl" style={{ background: "#A100FF08", border: "1px solid #A100FF20" }}>
-        <svg className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "#A100FF" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+      <div className="flex items-start gap-3 px-4 py-3.5 rounded-xl" style={{ background: "#6C63FF08", border: "1px solid #6C63FF20" }}>
+        <svg className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "#6C63FF" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
         </svg>
         <div>
@@ -229,7 +229,7 @@ export default function ClaimDetailPage() {
             <div className="space-y-2">
               {[
                 { label: "Atlas Vector Search",        desc: "Policy matched semantically",  color: "#10b981", ok: true },
-                { label: "LangGraph Checkpointing",    desc: "Agent state persisted",         color: "#A100FF", ok: true },
+                { label: "LangGraph Checkpointing",    desc: "Agent state persisted",         color: "#6C63FF", ok: true },
                 { label: "Immutable Audit Trail",      desc: "Compliance record written",     color: "#3b82f6", ok: true },
                 { label: "Agent Memory",               desc: "Ring patterns tracked",         color: "#f59e0b", ok: true },
                 { label: "Fraud Ring Linked",          desc: ring ? ring.ring_id : "No ring", color: ring ? "#ef4444" : "#334155", ok: !!ring },
@@ -262,7 +262,7 @@ export default function ClaimDetailPage() {
                 Fraud Rings → Chapter 4
               </Link>
               <Link href="/advisory" className="flex items-center gap-2 text-xs text-[#64748b] hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-white/[0.03]">
-                <span className="w-4 h-4 rounded text-[9px] font-bold flex items-center justify-center" style={{ background: "#A100FF15", color: "#A100FF" }}>5</span>
+                <span className="w-4 h-4 rounded text-[9px] font-bold flex items-center justify-center" style={{ background: "#6C63FF15", color: "#6C63FF" }}>5</span>
                 AI Intelligence → Chapter 5
               </Link>
             </div>
@@ -273,7 +273,7 @@ export default function ClaimDetailPage() {
       {/* ── Human Override Modal ─────────────────────────────────────────── */}
       {overrideOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{ background: "rgba(0,0,0,0.75)" }}>
-          <div className="w-full max-w-md rounded-2xl p-6 space-y-5" style={{ background: "#0d0f14", border: "1px solid #A100FF30" }}>
+          <div className="w-full max-w-md rounded-2xl p-6 space-y-5" style={{ background: "#0d0f14", border: "1px solid #6C63FF30" }}>
             <div>
               <div className="text-base font-semibold text-white">Human Override</div>
               <p className="text-xs text-[#475569] mt-1">
@@ -284,7 +284,7 @@ export default function ClaimDetailPage() {
             <div>
               <label className="text-[10px] font-semibold text-[#334155] uppercase tracking-wider mb-1.5 block">New Verdict</label>
               <select value={overrideVerdict} onChange={(e) => setOverrideVerdict(e.target.value as Verdict)}
-                className="w-full rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#A100FF]/50 border"
+                className="w-full rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#6C63FF]/50 border"
                 style={{ background: "#06070a", borderColor: "#ffffff0d" }}>
                 <option value="approved">Approved</option>
                 <option value="flagged">Flagged for Review</option>
@@ -305,9 +305,9 @@ export default function ClaimDetailPage() {
             <div className="flex gap-3">
               <button onClick={handleOverride} disabled={submitting || !overrideReason.trim()}
                 className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white disabled:opacity-40 transition-colors"
-                style={{ background: "#A100FF" }}
-                onMouseEnter={e => { if (!submitting) (e.currentTarget as HTMLButtonElement).style.background = "#8900d9"; }}
-                onMouseLeave={e => (e.currentTarget as HTMLButtonElement).style.background = "#A100FF"}>
+                style={{ background: "#6C63FF" }}
+                onMouseEnter={e => { if (!submitting) (e.currentTarget as HTMLButtonElement).style.background = "#5b52d9"; }}
+                onMouseLeave={e => (e.currentTarget as HTMLButtonElement).style.background = "#6C63FF"}>
                 {submitting ? "Saving…" : "Confirm Override"}
               </button>
               <button onClick={() => setOverrideOpen(false)}

@@ -138,7 +138,7 @@ function SubmissionCard({ s, open, onToggle }: { s: Submission; open: boolean; o
   const label    = STATUS_LABEL[s.status] ?? s.status;
 
   return (
-    <div className={`surface rounded-xl overflow-hidden border transition-all ${open ? "border-[#A100FF]/20" : "border-transparent"}`}>
+    <div className={`surface rounded-xl overflow-hidden border transition-all ${open ? "border-[#6C63FF]/20" : "border-transparent"}`}>
       {/* Compact header — always visible, clickable */}
       <button
         onClick={onToggle}
@@ -151,7 +151,7 @@ function SubmissionCard({ s, open, onToggle }: { s: Submission; open: boolean; o
         </svg>
 
         {/* ID */}
-        <span className="font-mono text-xs text-[#A100FF] font-medium w-32 shrink-0">{s.submission_id}</span>
+        <span className="font-mono text-xs text-[#6C63FF] font-medium w-32 shrink-0">{s.submission_id}</span>
 
         {/* Insured */}
         <span className="text-sm text-[#e2e8f0] font-medium flex-1 truncate">{s.insured_name}</span>
@@ -164,7 +164,7 @@ function SubmissionCard({ s, open, onToggle }: { s: Submission; open: boolean; o
         {/* Fields mini bar */}
         <div className="flex items-center gap-2 shrink-0">
           <div className="w-16 h-1 rounded-full bg-white/[0.06] overflow-hidden">
-            <div className="h-full rounded-full bg-[#A100FF]" style={{ width: `${pct}%` }} />
+            <div className="h-full rounded-full bg-[#6C63FF]" style={{ width: `${pct}%` }} />
           </div>
           <span className="text-[10px] text-[#475569] tabular-nums w-7">{pct}%</span>
         </div>
@@ -220,7 +220,7 @@ function SubmissionCard({ s, open, onToggle }: { s: Submission; open: boolean; o
 
           <div className="mt-4 flex justify-end">
             <Link href={`/underwriting/${s.submission_id}`}
-              className="text-xs font-medium text-[#b84dff] hover:text-[#A100FF] transition-colors flex items-center gap-1">
+              className="text-xs font-medium text-[#b84dff] hover:text-[#6C63FF] transition-colors flex items-center gap-1">
               Full review →
             </Link>
           </div>

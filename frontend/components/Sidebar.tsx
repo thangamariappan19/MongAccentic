@@ -128,63 +128,66 @@ export default function Sidebar() {
   const activeStep   = visibleSteps.find(s => isActive(s.href));
 
   return (
-    <aside className="hidden md:flex w-56 shrink-0 flex-col h-screen sticky top-0 border-r border-white/[0.10]"
-      style={{ background: "#0f172a" }}>
+    <aside className="hidden md:flex w-56 shrink-0 flex-col h-screen sticky top-0"
+      style={{ background: "#223A66" }}>
 
       {/* Logo */}
       <div className="px-4 py-5">
         <div className="flex items-center gap-2.5">
-          <div className="w-7 h-7 rounded-lg flex items-center justify-center font-black text-xs shrink-0 text-white" style={{ background: "#A100FF" }}>
+          <div className="w-7 h-7 rounded-lg flex items-center justify-center font-black text-xs shrink-0 text-white" style={{ background: "#6C63FF" }}>
             M
           </div>
           <div>
             <div className="text-[13px] font-semibold text-white leading-tight">MongAccentic</div>
-            <div className="text-[10px] text-[#64748b] mt-0.5">AI Claims Intelligence</div>
+            <div className="text-[10px] mt-0.5" style={{ color: "rgba(255,255,255,0.45)" }}>AI Claims Intelligence</div>
           </div>
         </div>
       </div>
 
-      <div className="mx-4 h-px bg-white/[0.10]" />
+      <div className="mx-4 h-px" style={{ background: "rgba(255,255,255,0.1)" }} />
 
       {/* Current chapter indicator */}
       {activeStep && (
-        <div className="mx-3 mt-3 px-3 py-2 rounded-lg" style={{ background: "#A100FF18", border: "1px solid #A100FF35" }}>
-          <div className="text-[9px] font-semibold uppercase tracking-wider mb-0.5" style={{ color: "#b84dff" }}>
+        <div className="mx-3 mt-3 px-3 py-2 rounded-lg" style={{ background: "rgba(108,99,255,0.2)", border: "1px solid rgba(108,99,255,0.4)" }}>
+          <div className="text-[9px] font-semibold uppercase tracking-wider mb-0.5" style={{ color: "#a5b4fc" }}>
             Chapter {activeStep.step} of {visibleSteps.length}
           </div>
           <div className="text-[11px] font-semibold text-white">{activeStep.chapter}</div>
-          <div className="text-[10px] mt-0.5" style={{ color: "#A100FF90" }}>{activeStep.label}</div>
+          <div className="text-[10px] mt-0.5" style={{ color: "rgba(165,180,252,0.7)" }}>{activeStep.label}</div>
         </div>
       )}
 
       {/* Story nav */}
       <nav className="flex-1 px-2 py-3 space-y-0.5 overflow-y-auto">
-        <div className="px-3 py-1.5 text-[9px] font-semibold text-[#475569] uppercase tracking-widest">
+        <div className="px-3 py-1.5 text-[9px] font-semibold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.35)" }}>
           Demo Journey
         </div>
         {visibleSteps.map((item) => {
           const active = isActive(item.href);
           return (
             <Link key={item.href} href={item.href}
-              className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-[12px] font-medium transition-colors relative group ${
-                active
-                  ? "bg-white/[0.08] text-white"
-                  : "text-[#94a3b8] hover:text-white hover:bg-white/[0.05]"
-              }`}>
+              className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-[12px] font-medium transition-all relative group`}
+              style={active
+                ? { background: "rgba(255,255,255,0.12)", color: "white" }
+                : { color: "rgba(255,255,255,0.6)" }}
+              onMouseEnter={e => { if (!active) e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }}
+              onMouseLeave={e => { if (!active) e.currentTarget.style.background = ""; }}
+            >
               {active && (
-                <span className="absolute left-0 top-1.5 bottom-1.5 w-0.5 rounded-r-full" style={{ background: "#A100FF" }} />
+                <span className="absolute left-0 top-1.5 bottom-1.5 w-0.5 rounded-r-full" style={{ background: "#FFC107" }} />
               )}
 
               {/* Step number */}
-              <span className={`w-4 h-4 rounded flex items-center justify-center text-[9px] font-bold shrink-0 transition-colors ${
-                active ? "text-white" : "text-[#64748b]"
-              }`} style={active ? { background: "#A100FF" } : { background: "#1e2535" }}>
+              <span className="w-4 h-4 rounded flex items-center justify-center text-[9px] font-bold shrink-0"
+                style={active
+                  ? { background: "#6C63FF", color: "white" }
+                  : { background: "rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.5)" }}>
                 {item.step}
               </span>
 
               <div className="flex-1 min-w-0">
                 <div className="leading-tight">{item.label}</div>
-                <div className={`text-[9px] mt-0.5 truncate ${active ? "text-[#A100FF]/80" : "text-[#64748b] group-hover:text-[#94a3b8]"}`}>
+                <div className="text-[9px] mt-0.5 truncate" style={{ color: active ? "rgba(165,180,252,0.8)" : "rgba(255,255,255,0.35)" }}>
                   {item.chapter}
                 </div>
               </div>
@@ -200,47 +203,52 @@ export default function Sidebar() {
         })}
       </nav>
 
-      <div className="mx-4 h-px bg-white/[0.05]" />
+      <div className="mx-4 h-px" style={{ background: "rgba(255,255,255,0.08)" }} />
 
       {/* Bottom: role switcher + status */}
       <div className="px-2 py-4 space-y-3">
         {/* Role switcher */}
         <div className="relative">
           <button onClick={() => setOpen(o => !o)}
-            className="w-full flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/[0.04] transition-colors text-left">
+            className="w-full flex items-center gap-2 px-3 py-2 rounded-lg transition-colors text-left"
+            style={{ background: "rgba(255,255,255,0.06)" }}
+            onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.1)"}
+            onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.06)"}>
             <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-[9px] font-bold text-white"
-              style={{ background: "#1e293b" }}>
+              style={{ background: "#0D6EFD" }}>
               {currentRole.label[0]}
             </div>
             <div className="flex-1 min-w-0">
               <div className="text-[11px] font-medium text-white truncate">{currentRole.label}</div>
-              <div className="text-[9px] text-[#64748b] truncate">{currentRole.subtitle}</div>
+              <div className="text-[9px] truncate" style={{ color: "rgba(255,255,255,0.4)" }}>{currentRole.subtitle}</div>
             </div>
-            <svg className={`w-3 h-3 text-[#64748b] shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
+            <svg className={`w-3 h-3 shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
+              style={{ color: "rgba(255,255,255,0.4)" }}
               fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
 
           {open && (
-            <div className="absolute bottom-full left-0 right-0 mb-1 rounded-lg border border-white/[0.07] overflow-hidden z-50"
-              style={{ background: "#1e293b" }}>
-              <div className="px-3 py-1.5 text-[9px] font-semibold text-[#64748b] uppercase tracking-wider">Switch Role · Nav Changes</div>
+            <div className="absolute bottom-full left-0 right-0 mb-1 rounded-lg overflow-hidden z-50"
+              style={{ background: "#1a2d52", border: "1px solid rgba(255,255,255,0.12)", boxShadow: "0 8px 24px rgba(0,0,0,0.3)" }}>
+              <div className="px-3 py-1.5 text-[9px] font-semibold uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.35)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>Switch Role · Nav Changes</div>
               {ROLES.map(r => (
                 <button key={r.value} onClick={() => switchRole(r.value)}
-                  className={`w-full flex items-center gap-2.5 px-3 py-2 text-left transition-colors ${
-                    r.value === role ? "bg-white/[0.08]" : "hover:bg-white/[0.05]"
-                  }`}>
+                  className="w-full flex items-center gap-2.5 px-3 py-2 text-left transition-colors"
+                  style={{ background: r.value === role ? "rgba(108,99,255,0.2)" : "" }}
+                  onMouseEnter={e => { if (r.value !== role) e.currentTarget.style.background = "rgba(255,255,255,0.05)"; }}
+                  onMouseLeave={e => { if (r.value !== role) e.currentTarget.style.background = ""; }}>
                   <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 text-[9px] font-bold text-white"
-                    style={{ background: r.value === role ? "#A100FF" : "#2a3550" }}>
+                    style={{ background: r.value === role ? "#6C63FF" : "rgba(255,255,255,0.15)" }}>
                     {r.label[0]}
                   </div>
                   <div>
-                    <div className={`text-[11px] font-medium ${r.value === role ? "text-white" : "text-[#94a3b8]"}`}>{r.label}</div>
-                    <div className="text-[9px] text-[#64748b]">{r.subtitle}</div>
+                    <div className="text-[11px] font-medium text-white">{r.label}</div>
+                    <div className="text-[9px]" style={{ color: "rgba(255,255,255,0.4)" }}>{r.subtitle}</div>
                   </div>
                   {r.value === role && (
-                    <svg className="w-3 h-3 ml-auto text-[#A100FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <svg className="w-3 h-3 ml-auto" style={{ color: "#FFC107" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                   )}
@@ -255,7 +263,7 @@ export default function Sidebar() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
           </span>
-          <span className="text-[10px] text-[#64748b]">5 agents · MongoDB Atlas</span>
+          <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.4)" }}>5 agents · MongoDB Atlas</span>
         </div>
       </div>
     </aside>

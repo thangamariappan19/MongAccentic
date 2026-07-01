@@ -6,7 +6,7 @@ const AGENT_META: Record<string, { label: string; color: string; hex: string; st
   policy_matching:    { label: "Policy Matching",    color: "border-blue-500/40",    hex: "#3b82f6", step: 2 },
   ring_detection:     { label: "Ring Detection",     color: "border-red-400/40",     hex: "#f87171", step: 2 },
   risk_assessment:    { label: "Risk Assessment",    color: "border-amber-500/40",   hex: "#f59e0b", step: 3 },
-  decision_maker:     { label: "Decision Maker",     color: "border-[#A100FF]/40",   hex: "#A100FF", step: 4 },
+  decision_maker:     { label: "Decision Maker",     color: "border-[#6C63FF]/40",   hex: "#6C63FF", step: 4 },
   financial_advisory: { label: "Financial Advisory", color: "border-emerald-500/40", hex: "#10b981", step: 5 },
   audit_writer:       { label: "Audit Writer",       color: "border-sky-500/40",     hex: "#38bdf8", step: 6 },
 };
@@ -28,7 +28,7 @@ export default function AgentTrace({ steps }: { steps: AgentStep[] }) {
       <div className="flex items-center justify-between">
         <div className="text-[10px] text-[#334155]">{steps.length} agents executed</div>
         {totalMs > 0 && (
-          <div className="text-[10px] font-semibold" style={{ color: "#A100FF" }}>
+          <div className="text-[10px] font-semibold" style={{ color: "#6C63FF" }}>
             ⚡ {totalMs}ms total · vs 21-day industry average
           </div>
         )}
@@ -41,10 +41,10 @@ export default function AgentTrace({ steps }: { steps: AgentStep[] }) {
           const methodBadge = method ? METHOD_BADGES[method] : null;
 
           return (
-            <div key={i} className={`border-l-2 ${meta.color} rounded-r-xl px-4 py-3`} style={{ background: "#ffffff04" }}>
+            <div key={i} className={`border-l-2 ${meta.color} rounded-r-xl px-4 py-3`} style={{ background: "rgba(15,23,42,0.02)" }}>
               <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-xs font-semibold text-white">{meta.label}</span>
+                  <span className="text-xs font-semibold text-[#0f172a]">{meta.label}</span>
                   <StatusDot status={step.status} />
                   {methodBadge && (
                     <span className="text-[9px] px-1.5 py-0.5 rounded font-semibold"
@@ -69,7 +69,7 @@ export default function AgentTrace({ steps }: { steps: AgentStep[] }) {
 function StatusDot({ status }: { status: string }) {
   const cfg: Record<string, { color: string; label: string }> = {
     done:    { color: "#10b981", label: "Done" },
-    running: { color: "#A100FF", label: "Running" },
+    running: { color: "#6C63FF", label: "Running" },
     failed:  { color: "#ef4444", label: "Failed" },
     pending: { color: "#334155", label: "Pending" },
   };
@@ -148,7 +148,7 @@ function ResultDetail({ agentName, result }: { agentName: string; result: Record
     const conf = result.confidence ? `${(Number(result.confidence) * 100).toFixed(0)}%` : "—";
     return (
       <div className="space-y-1">
-        <Row label="Verdict" value={String(result.verdict ?? "—").replace(/_/g, " ")} color="#A100FF" />
+        <Row label="Verdict" value={String(result.verdict ?? "—").replace(/_/g, " ")} color="#6C63FF" />
         <Row label="Confidence" value={conf} color="#b84dff" />
         {result.settlement_amount && <Row label="Settlement" value={`$${Number(result.settlement_amount).toLocaleString()}`} color="#10b981" />}
         {result.reasoning && <Row label="Reasoning" value={String(result.reasoning)} />}

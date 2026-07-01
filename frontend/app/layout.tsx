@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.className} antialiased bg-[#08090b] text-[#f1f5f9]`}>
+    <html lang="en">
+      <body className={`${inter.className} antialiased bg-[#F5F6F8] text-[#223A66]`}>
         <div className="flex h-screen overflow-hidden">
           <Sidebar />
           <main className="flex-1 overflow-y-auto">

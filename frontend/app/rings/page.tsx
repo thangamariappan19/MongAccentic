@@ -69,9 +69,9 @@ export default function RingsPage() {
       <RoleBar />
 
       {/* Chapter card */}
-      <div className="rounded-xl px-5 py-4" style={{ background: "#0d0809", border: "1px solid #ef444420" }}>
+      <div className="rounded-xl px-5 py-4" style={{ background: "#fff5f5", border: "1px solid rgba(239,68,68,0.18)" }}>
         <div className="flex items-center justify-between flex-wrap gap-3 mb-2">
-          <span className="text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full" style={{ background: "#ef444415", color: "#ef4444", border: "1px solid #ef444430" }}>
+          <span className="text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full" style={{ background: "#ef444410", color: "#dc2626", border: "1px solid #ef444430" }}>
             Chapter 4 · Fraud Caught
           </span>
           {rings.length > 0 && (
@@ -80,14 +80,14 @@ export default function RingsPage() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500" />
               </span>
-              <span className="text-red-400 font-medium">AI detection active</span>
+              <span className="text-red-500 font-medium">AI detection active</span>
             </div>
           )}
         </div>
-        <h1 className="text-base font-bold text-white">What is a Fraud Ring?</h1>
-        <p className="text-xs text-[#94a3b8] mt-1 leading-relaxed max-w-2xl">
+        <h1 className="text-base font-bold text-[#223A66]">What is a Fraud Ring?</h1>
+        <p className="text-xs text-[#475569] mt-1 leading-relaxed max-w-2xl">
           A fraud ring is when multiple people coordinate false insurance claims — same location, same vehicle description, similar claim amounts — to maximize payouts.
-          <span className="text-white font-medium"> No human flagged these. Our AI detected them automatically</span> by analysing patterns across all claims in real time.
+          <span className="text-[#223A66] font-medium"> No human flagged these. Our AI detected them automatically</span> by analysing patterns across all claims in real time.
         </p>
         <div className="flex flex-wrap gap-4 mt-3">
           {[
@@ -109,10 +109,10 @@ export default function RingsPage() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
           </svg>
           <div className="flex-1">
-            <span className="text-red-400 font-semibold text-sm">Action Required — </span>
-            <span className="text-[#94a3b8] text-sm">
+            <span className="text-red-600 font-semibold text-sm">Action Required — </span>
+            <span className="text-[#475569] text-sm">
               {highRiskRings} high-risk scheme{highRiskRings > 1 ? "s" : ""} detected with{" "}
-              <span className="text-white font-semibold">${totalExposure.toLocaleString()}</span> at financial risk.
+              <span className="text-[#223A66] font-semibold">${totalExposure.toLocaleString()}</span> at financial risk.
               Escalation to Special Investigation Unit recommended.
             </span>
           </div>
@@ -122,24 +122,24 @@ export default function RingsPage() {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         <div className="surface rounded-xl px-5 py-4">
-          <div className="text-[10px] font-semibold text-[#334155] uppercase tracking-wider mb-2">Financial Exposure</div>
+          <div className="text-[10px] font-semibold text-[#64748b] uppercase tracking-wider mb-2">Financial Exposure</div>
           <div className="text-2xl font-bold text-red-400 tabular-nums">${totalExposure.toLocaleString()}</div>
           <div className="text-xs text-[#475569] mt-1">across {totalLinked} linked claims</div>
         </div>
         <div className="surface rounded-xl px-5 py-4">
-          <div className="text-[10px] font-semibold text-[#334155] uppercase tracking-wider mb-2">Active Schemes</div>
+          <div className="text-[10px] font-semibold text-[#64748b] uppercase tracking-wider mb-2">Active Schemes</div>
           <div className={`text-2xl font-bold tabular-nums ${rings.length > 0 ? "text-amber-400" : "text-emerald-400"}`}>{rings.length}</div>
           <div className="text-xs text-[#475569] mt-1">fraud rings under watch</div>
         </div>
         <div className="surface rounded-xl px-5 py-4">
-          <div className="text-[10px] font-semibold text-[#334155] uppercase tracking-wider mb-2">Claims Linked</div>
-          <div className="text-2xl font-bold text-white tabular-nums">{totalLinked}</div>
+          <div className="text-[10px] font-semibold text-[#64748b] uppercase tracking-wider mb-2">Claims Linked</div>
+          <div className="text-2xl font-bold text-[#223A66] tabular-nums">{totalLinked}</div>
           <div className="text-xs text-[#475569] mt-1">flagged for investigation</div>
         </div>
         <div className="surface rounded-xl px-5 py-4">
-          <div className="text-[10px] font-semibold text-[#334155] uppercase tracking-wider mb-2">Highest Risk</div>
+          <div className="text-[10px] font-semibold text-[#64748b] uppercase tracking-wider mb-2">Highest Risk</div>
           <div className={`text-2xl font-bold tabular-nums ${riskColors(maxScore).text}`}>
-            {maxScore}<span className="text-sm font-normal text-[#334155]">/100</span>
+            {maxScore}<span className="text-sm font-normal text-[#64748b]">/100</span>
           </div>
           <div className={`text-xs mt-1 font-semibold ${riskColors(maxScore).text}`}>{riskLevel(maxScore)} SEVERITY</div>
         </div>
@@ -153,7 +153,7 @@ export default function RingsPage() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <div className="text-base font-semibold text-white mb-2">No fraud schemes detected</div>
+          <div className="text-base font-semibold text-[#223A66] mb-2">No fraud schemes detected</div>
           <p className="text-sm text-[#475569] mb-6 max-w-sm mx-auto">
             The AI is continuously monitoring all claims for coordinated fraud patterns.
           </p>
@@ -198,14 +198,14 @@ function SchemeCard({ ring, exposure, linkedClaims }: {
           <div className="flex items-start gap-6 mb-5">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-1.5">
-                <h2 className="text-lg font-bold text-white">{title}</h2>
+                <h2 className="text-lg font-bold text-[#223A66]">{title}</h2>
                 <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider border ${colors.bg} ${colors.text} ${colors.border}`}>
                   {level} RISK
                 </span>
               </div>
               <p className="text-sm text-[#475569] mb-4">
                 {ring.claim_ids.length} linked claims · Detected {detectedDate}
-                <span className="text-[#334155] ml-2 font-mono text-[11px]">({ring.ring_id})</span>
+                <span className="text-[#64748b] ml-2 font-mono text-[11px]">({ring.ring_id})</span>
               </p>
               {/* Financial exposure highlight */}
               <div className={`inline-flex items-center gap-4 px-4 py-3 rounded-xl border ${colors.bg} ${colors.border}`}>
@@ -213,12 +213,12 @@ function SchemeCard({ ring, exposure, linkedClaims }: {
                   <div className="text-[9px] font-semibold text-[#475569] uppercase tracking-wider">Total at Risk</div>
                   <div className={`text-xl font-bold tabular-nums mt-0.5 ${colors.text}`}>${exposure.toLocaleString()}</div>
                 </div>
-                <div className="w-px h-8 bg-white/[0.08]" />
+                <div className="w-px h-8 bg-[#e2e8f0]" />
                 <div>
                   <div className="text-[9px] font-semibold text-[#475569] uppercase tracking-wider">Claims</div>
-                  <div className="text-xl font-bold text-white mt-0.5">{ring.claim_ids.length}</div>
+                  <div className="text-xl font-bold text-[#223A66] mt-0.5">{ring.claim_ids.length}</div>
                 </div>
-                <div className="w-px h-8 bg-white/[0.08]" />
+                <div className="w-px h-8 bg-[#e2e8f0]" />
                 <div>
                   <div className="text-[9px] font-semibold text-[#475569] uppercase tracking-wider">Risk Score</div>
                   <div className={`text-xl font-bold tabular-nums mt-0.5 ${colors.text}`}>{ring.risk_score}/100</div>
@@ -227,7 +227,7 @@ function SchemeCard({ ring, exposure, linkedClaims }: {
             </div>
             {/* Network viz */}
             <div className="shrink-0">
-              <div className="text-[9px] font-semibold text-[#334155] uppercase tracking-wider text-center mb-1.5">Claim Network</div>
+              <div className="text-[9px] font-semibold text-[#64748b] uppercase tracking-wider text-center mb-1.5">Claim Network</div>
               <ClaimNetwork claimIds={ring.claim_ids} score={ring.risk_score} />
             </div>
           </div>
@@ -235,7 +235,7 @@ function SchemeCard({ ring, exposure, linkedClaims }: {
           {/* Timeline */}
           {linkedClaims.length > 0 && (
             <div className="mb-4">
-              <div className="text-[10px] font-semibold text-[#334155] uppercase tracking-wider mb-2">Claim Timeline</div>
+              <div className="text-[10px] font-semibold text-[#64748b] uppercase tracking-wider mb-2">Claim Timeline</div>
               <ClaimTimeline claims={linkedClaims} color={colors.hex} />
             </div>
           )}
@@ -243,7 +243,7 @@ function SchemeCard({ ring, exposure, linkedClaims }: {
           {/* AI Findings */}
           {signals.length > 0 && (
             <div className="mb-4">
-              <div className="text-[10px] font-semibold text-[#334155] uppercase tracking-wider mb-2">What AI Found</div>
+              <div className="text-[10px] font-semibold text-[#64748b] uppercase tracking-wider mb-2">What AI Found</div>
               <div className="space-y-2">
                 {signals.map((s, i) => (
                   <div key={i} className={`flex items-start gap-3 px-4 py-3 rounded-lg border ${colors.bg} ${colors.border}`}>
@@ -260,10 +260,10 @@ function SchemeCard({ ring, exposure, linkedClaims }: {
           {/* Footer */}
           <div className="flex items-center justify-between flex-wrap gap-3 pt-4 border-t border-white/[0.05]">
             <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-[10px] text-[#334155] uppercase tracking-wider mr-1">Linked Claims:</span>
+              <span className="text-[10px] text-[#64748b] uppercase tracking-wider mr-1">Linked Claims:</span>
               {ring.claim_ids.map((id) => (
                 <Link key={id} href={`/claims/${id}`}
-                  className="font-mono text-[11px] px-2 py-1 rounded border border-white/[0.07] text-[#64748b] bg-white/[0.03] hover:text-[#b84dff] hover:border-[#A100FF]/30 transition-all">
+                  className="font-mono text-[11px] px-2 py-1 rounded border border-white/[0.07] text-[#64748b] bg-white/[0.03] hover:text-[#b84dff] hover:border-[#6C63FF]/30 transition-all">
                   {id}
                 </Link>
               ))}
@@ -305,7 +305,7 @@ function ClaimNetwork({ claimIds, score }: { claimIds: string[]; score: number }
       <text x={cx} y={cy + 6} textAnchor="middle" dominantBaseline="central" fontSize={5.5} fill={color} opacity={0.6}>CENTER</text>
       {nodes.map((n) => (
         <g key={n.id}>
-          <circle cx={n.x} cy={n.y} r={11} fill="#0f172a" stroke={color} strokeWidth={1.5} strokeOpacity={0.5} />
+          <circle cx={n.x} cy={n.y} r={11} fill="#223A66" stroke={color} strokeWidth={1.5} strokeOpacity={0.5} />
           <text x={n.x} y={n.y} textAnchor="middle" dominantBaseline="central" fontSize={5} fill="#94a3b8">
             {n.id.split("-").pop()?.slice(-3)}
           </text>
@@ -325,13 +325,13 @@ function ClaimTimeline({ claims, color }: { claims: ClaimListItem[]; color: stri
   return (
     <div className="flex items-center gap-3 px-4 py-3 rounded-lg bg-white/[0.02] border border-white/[0.05]">
       <div className="flex-1 relative h-7 flex items-center">
-        <div className="absolute left-0 right-0 h-px bg-white/[0.08]" />
+        <div className="absolute left-0 right-0 h-px bg-[#e2e8f0]" />
         {sorted.map((c, i) => {
           const pct = range === 0 ? 50 : ((times[i] - minT) / range) * 100;
           return (
             <div key={c.claim_id} className="absolute flex flex-col items-center"
               style={{ left: `${pct}%`, transform: "translateX(-50%)" }}>
-              <div className="w-2.5 h-2.5 rounded-full border-2 bg-[#0f172a]" style={{ borderColor: color }} />
+              <div className="w-2.5 h-2.5 rounded-full border-2 bg-[#223A66]" style={{ borderColor: color }} />
               <span className="text-[8px] text-[#475569] mt-1 whitespace-nowrap">
                 {new Date(c.created_at).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
               </span>
@@ -339,7 +339,7 @@ function ClaimTimeline({ claims, color }: { claims: ClaimListItem[]; color: stri
           );
         })}
       </div>
-      <div className="text-[10px] text-[#334155] shrink-0 pl-2">
+      <div className="text-[10px] text-[#64748b] shrink-0 pl-2">
         {sorted.length > 1
           ? `${Math.round((times[times.length - 1] - times[0]) / (1000 * 60 * 60 * 24))}d span`
           : "Same day"}

@@ -126,7 +126,7 @@ export default function SubmissionDetailPage() {
           {(sub.status === "rating_complete" || sub.status === "approved") && !sub.decision && (
             <button
               onClick={() => setShowDecision(true)}
-              className="bg-[#8900d9] hover:bg-[#A100FF] text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
+              className="bg-[#8900d9] hover:bg-[#6C63FF] text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
             >
               Make Decision
             </button>
@@ -159,7 +159,7 @@ export default function SubmissionDetailPage() {
             onClick={() => setTab(t)}
             className={`px-4 py-2.5 text-sm font-medium capitalize transition-colors border-b-2 -mb-px ${
               tab === t
-                ? "border-[#A100FF] text-[#b84dff]"
+                ? "border-[#6C63FF] text-[#b84dff]"
                 : "border-transparent text-[#6b7280] hover:text-[#d1d5db]"
             }`}
           >
@@ -301,7 +301,7 @@ export default function SubmissionDetailPage() {
                 </div>
               ) : (
                 <div className="flex gap-3">
-                  <button onClick={() => { setShowDecision(true); }} className="flex-1 bg-[#8900d9] hover:bg-[#A100FF] text-white py-2.5 rounded-lg text-sm font-semibold transition-colors">Approve →</button>
+                  <button onClick={() => { setShowDecision(true); }} className="flex-1 bg-[#8900d9] hover:bg-[#6C63FF] text-white py-2.5 rounded-lg text-sm font-semibold transition-colors">Approve →</button>
                   <button onClick={() => handleDecision("pending_info")} className="flex-1 border border-amber-500/30 text-amber-400 hover:bg-amber-500/8 py-2.5 rounded-lg text-sm font-medium transition-colors">Request Info</button>
                   <button onClick={() => handleDecision("declined")} className="flex-1 border border-red-500/30 text-red-400 hover:bg-red-500/8 py-2.5 rounded-lg text-sm font-medium transition-colors">Decline</button>
                 </div>
@@ -328,7 +328,7 @@ export default function SubmissionDetailPage() {
                   return (
                     <div key={i} className="relative">
                       <div className={`absolute -left-6 top-1.5 w-3 h-3 rounded-full border-2 ${
-                        isHuman ? "bg-blue-500 border-blue-600" : "bg-[#A100FF] border-[#8900d9]"
+                        isHuman ? "bg-blue-500 border-blue-600" : "bg-[#6C63FF] border-[#8900d9]"
                       }`} />
                       <div className="bg-[#0f1015] border border-white/[0.06] rounded-xl p-4">
                         <div className="flex items-center justify-between mb-1.5">
@@ -365,14 +365,14 @@ export default function SubmissionDetailPage() {
                 value={decisionNotes}
                 onChange={(e) => setDecisionNotes(e.target.value)}
                 placeholder="Add any underwriting notes or conditions…"
-                className="w-full bg-[#07080b] border border-white/[0.07] rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#A100FF]/50 resize-none"
+                className="w-full bg-[#07080b] border border-white/[0.07] rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#6C63FF]/50 resize-none"
               />
             </div>
             <div className="grid grid-cols-3 gap-2">
               <button
                 onClick={() => handleDecision("approved")}
                 disabled={deciding}
-                className="bg-[#8900d9] hover:bg-[#A100FF] disabled:opacity-50 text-white py-2 rounded-lg text-sm font-semibold transition-colors"
+                className="bg-[#8900d9] hover:bg-[#6C63FF] disabled:opacity-50 text-white py-2 rounded-lg text-sm font-semibold transition-colors"
               >
                 ✓ Approve
               </button>
@@ -446,7 +446,7 @@ function FieldCard({ fd, entry, value, onChange }: {
         <select
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full bg-[#07080b] border border-white/[0.07] rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#A100FF]/50"
+          className="w-full bg-[#07080b] border border-white/[0.07] rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#6C63FF]/50"
         >
           <option value="">Select…</option>
           {fd.options.map((opt) => <option key={opt} value={opt}>{opt}</option>)}
@@ -457,7 +457,7 @@ function FieldCard({ fd, entry, value, onChange }: {
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={!hasValue ? `Enter ${fd.label.toLowerCase()}…` : undefined}
-          className={`w-full bg-[#07080b] border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#A100FF]/50 transition-colors ${
+          className={`w-full bg-[#07080b] border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#6C63FF]/50 transition-colors ${
             !hasValue && fd.required
               ? "border-red-500/30 text-[#9ca3af] placeholder-red-400/40"
               : "border-white/[0.07] text-white placeholder-[#374151]"
