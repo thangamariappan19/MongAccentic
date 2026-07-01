@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #08090b;
-  --surface: #0d0f14;
-  --surface-2: #111520;
-  --border: rgba(255, 255, 255, 0.055);
-  --border-strong: rgba(255, 255, 255, 0.1);
-  --foreground: #f1f5f9;
-  --muted: #64748b;
-  --muted-2: #334155;
+  --bg: #0a0b0f;
+  --surface: #13161e;
+  --surface-2: #181c26;
+  --border: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --foreground: #f8fafc;
+  --muted: #94a3b8;
+  --muted-2: #64748b;
   --accent: #A100FF;
 }
 
@@ -127,8 +127,8 @@
 
   /* Reusable surface card */
   .surface {
-    background: #0d0f14;
-    border: 1px solid rgba(255, 255, 255, 0.055);
+    background: #13161e;
+    border: 1px solid rgba(255, 255, 255, 0.10);
   }
 
   /* Primary action button — Accenture Purple */
