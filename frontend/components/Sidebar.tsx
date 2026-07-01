@@ -129,7 +129,7 @@ export default function Sidebar() {
 
   return (
     <aside className="hidden md:flex w-56 shrink-0 flex-col h-screen sticky top-0 border-r border-white/[0.10]"
-      style={{ background: "#0a0b0f" }}>
+      style={{ background: "#0f172a" }}>
 
       {/* Logo */}
       <div className="px-4 py-5">
@@ -224,7 +224,7 @@ export default function Sidebar() {
 
           {open && (
             <div className="absolute bottom-full left-0 right-0 mb-1 rounded-lg border border-white/[0.07] overflow-hidden z-50"
-              style={{ background: "#0d0f14" }}>
+              style={{ background: "#1e293b" }}>
               <div className="px-3 py-1.5 text-[9px] font-semibold text-[#64748b] uppercase tracking-wider">Switch Role · Nav Changes</div>
               {ROLES.map(r => (
                 <button key={r.value} onClick={() => switchRole(r.value)}

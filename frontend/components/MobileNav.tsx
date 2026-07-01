@@ -54,7 +54,7 @@ export default function MobileNav() {
       {/* ── Top bar ── */}
       <header
         className="md:hidden sticky top-0 z-50 flex items-center justify-between px-4 py-3 border-b border-white/[0.06]"
-        style={{ background: "#06070a" }}
+        style={{ background: "#0f172a" }}
       >
         {/* Logo + current chapter */}
         <Link href="/" className="flex items-center gap-2.5 min-w-0">
@@ -112,7 +112,7 @@ export default function MobileNav() {
         className={`md:hidden fixed top-0 right-0 bottom-0 z-50 w-72 flex flex-col border-l border-white/[0.06] transition-transform duration-300 ease-out ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
-        style={{ background: "#06070a" }}
+        style={{ background: "#0f172a" }}
       >
         {/* Drawer header */}
         <div className="flex items-center justify-between px-4 py-4 border-b border-white/[0.06]">
@@ -199,7 +199,7 @@ export default function MobileNav() {
             <button
               onClick={() => setRoleOpen(o => !o)}
               className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl border border-white/[0.06] hover:border-white/[0.10] transition-colors"
-              style={{ background: "#0d0f14" }}
+              style={{ background: "#1e293b" }}
             >
               <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-[10px] font-bold text-white"
                 style={{ background: "#A100FF" }}>
@@ -217,7 +217,7 @@ export default function MobileNav() {
 
             {roleOpen && (
               <div className="absolute bottom-full left-0 right-0 mb-1 rounded-xl border border-white/[0.08] overflow-hidden z-50"
-                style={{ background: "#0d0f14" }}>
+                style={{ background: "#1e293b" }}>
                 <div className="px-3 py-2 text-[9px] font-semibold text-[#334155] uppercase tracking-wider border-b border-white/[0.05]">
                   Select Role · Nav adapts
                 </div>
