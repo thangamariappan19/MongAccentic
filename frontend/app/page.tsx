@@ -23,7 +23,17 @@ export default function Dashboard() {
 
   if (loading) return <Skeleton />;
 
-  const a     = analytics!;
+  if (!analytics) return (
+    <div className="flex items-center justify-center min-h-screen" style={{ background: "#06070a" }}>
+      <div className="text-center space-y-3">
+        <div className="text-2xl font-bold text-white">Connecting to backend…</div>
+        <div className="text-sm" style={{ color: "#64748b" }}>Make sure the backend is running on port 8000</div>
+        <button onClick={() => window.location.reload()} className="mt-4 px-4 py-2 rounded-lg text-sm font-semibold text-white" style={{ background: "#A100FF" }}>Retry</button>
+      </div>
+    </div>
+  );
+
+  const a     = analytics;
   const total = a.total_claims || 1;
 
   const fraudExposure = claims
